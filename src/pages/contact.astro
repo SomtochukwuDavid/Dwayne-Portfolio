@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { site } from "@/data/site";
+---
+<BaseLayout title={`Contact — ${site.name}`} description="Get in touch for AI/LLM evaluation, data engineering, or quantitative analysis work.">
+  <section class="section">
+    <div class="container-content max-w-xl">
+      <p class="eyebrow">Contact</p>
+      <h1 class="mt-3">Get in Touch</h1>
+      <p class="mt-5 text-ink-soft">
+        Best way to reach me is email. I read everything and reply promptly.
+      </p>
+      <div class="mt-10 p-6 card">
+        <p class="eyebrow mb-2">Email</p>
+        <a href={`mailto:${site.email}`} class="font-sans text-2xl font-bold text-accent hover:underline break-all">
+          {site.email}
+        </a>
+      </div>
+      <div class="mt-8">
+        <p class="eyebrow mb-2">Location</p>
+        <p class="text-ink-soft">{site.location}</p>
+        <p class="text-sm text-ink-soft mt-1">{site.workMode}</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

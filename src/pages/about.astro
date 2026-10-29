@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { site } from "@/data/site";
+---
+<BaseLayout title={`About — ${site.name}`} description="Mathematical and computer scientist with 15+ years of experience across quantitative software development and AI/LLM evaluation.">
+  <section class="section">
+    <div class="container-prose">
+      <p class="eyebrow">About</p>
+      <h1 class="mt-3">About Me</h1>
+      <p class="mt-8 text-xl text-ink-soft leading-relaxed">
+        I sit at the intersection of rigorous mathematical reasoning and production-grade code. Over the last 15+ years, I've built Python and SQL systems that clean, model, and verify large numerical datasets — from statistical pipelines to automated answer-checking tools for language models.
+      </p>
+      <h2 class="font-sans text-2xl font-bold mt-12 mb-6">Experience</h2>
+      <div class="space-y-8">
+        {site.experience.map((e) => (
+          <div class="border-l-2 border-accent pl-4">
+            <p class="font-mono text-xs text-accent">{e.dates}</p>
+            <h3 class="font-sans text-lg font-bold mt-1">{e.role}</h3>
+            <p class="text-ink-soft">{e.org}</p>
+          </div>
+        ))}
+      </div>
+      <h2 class="font-sans text-2xl font-bold mt-12 mb-6">Education</h2>
+      <div class="space-y-6">
+        {site.education.map((e) => (
+          <div>
+            <h3 class="font-sans text-lg font-bold">{e.degree}</h3>
+            <p class="text-ink-soft text-sm">{e.institution} · {e.dates}</p>
+            <p class="text-sm mt-1">{e.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

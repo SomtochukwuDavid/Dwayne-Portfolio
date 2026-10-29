@@ -1,0 +1,28 @@
+---
+import { site } from "@/data/site";
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-rule mt-24">
+  <div class="container-content py-12 grid gap-10 md:grid-cols-3">
+    <div>
+      <p class="font-sans text-xl font-bold tracking-tight">{site.name}</p>
+      <p class="text-sm text-ink-soft mt-1">{site.title}</p>
+    </div>
+    <div class="md:col-span-2 grid grid-cols-2 gap-8">
+      <div>
+        <p class="eyebrow mb-3">Contact</p>
+        <a class="block text-sm hover:text-accent transition-colors" href={`mailto:${site.email}`}>{site.email}</a>
+        <p class="text-sm text-ink-soft mt-1">{site.workMode}</p>
+      </div>
+      <div>
+        <p class="eyebrow mb-3">Location</p>
+        <p class="text-sm text-ink-soft">{site.location}</p>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-rule">
+    <div class="container-content py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <p class="font-mono text-[0.7rem] uppercase tracking-wider text-ink-soft">© {year} {site.name} · Built with Astro</p>
+    </div>
+  </div>
+</footer>

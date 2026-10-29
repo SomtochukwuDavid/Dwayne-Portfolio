@@ -1,0 +1,20 @@
+---
+export interface Props {
+  slug: string;
+  title: string;
+  category: string;
+  problem: string;
+  result: string;
+  stack: string[];
+}
+const { slug, title, category, problem, result, stack } = Astro.props;
+---
+<a href={`/work/${slug}`} class="card block p-6 group">
+  <p class="eyebrow">{category}</p>
+  <h3 class="mt-3 font-sans font-bold text-2xl tracking-tight group-hover:text-accent transition-colors">{title}</h3>
+  <div class="mt-4 space-y-2">
+    <p class="text-sm text-ink-soft"><span class="font-mono text-xs uppercase text-accent mr-2">Problem</span>{problem}</p>
+    <p class="text-sm text-white"><span class="font-mono text-xs uppercase text-accent mr-2">Result</span>{result}</p>
+  </div>
+  <div class="mt-5 flex flex-wrap gap-2">{stack.map((t) => <span class="tag">{t}</span>)}</div>
+</a>

@@ -1,0 +1,36 @@
+---
+import "@/styles/global.css";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { site } from "@/data/site";
+export interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://dwaynechisolm.com";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0B0E14" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body class="bg-bg text-ink antialiased font-body">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+    <Header />
+    <main id="main" class="min-h-[60vh]"><slot /></main>
+    <Footer />
+  </body>
+</html>
